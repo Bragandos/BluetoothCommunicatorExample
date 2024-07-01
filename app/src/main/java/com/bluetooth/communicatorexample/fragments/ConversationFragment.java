@@ -18,6 +18,7 @@ package com.bluetooth.communicatorexample.fragments;
 
 
 import android.animation.Animator;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,7 @@ public class ConversationFragment extends Fragment {
     private MainActivity activity;
     private MessagesAdapter mAdapter;
     private RecyclerView.SmoothScroller smoothScroller;
+    private int[] audioFiles = {R.raw.willkommen, R.raw.fleckmaybe, R.raw.fleckundsolution};
 
     public ConversationFragment() {
         //an empty constructor is always needed for fragments
@@ -92,6 +94,14 @@ public class ConversationFragment extends Fragment {
                 as clients or as servers
                  */
                 mAdapter.addMessage(message);
+
+                int x = Integer.parseInt(message.getText());
+
+                if (x < 3){
+                    MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), audioFiles[x]);
+                    mediaPlayer.start();
+                }
+
                 //smooth scroll
                 smoothScroller.setTargetPosition(mAdapter.getItemCount() - 1);
                 mRecyclerView.getLayoutManager().startSmoothScroll(smoothScroller);

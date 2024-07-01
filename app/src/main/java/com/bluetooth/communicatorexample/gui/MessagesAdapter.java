@@ -16,6 +16,7 @@
 
 package com.bluetooth.communicatorexample.gui;
 
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ import com.bluetooth.communicator.Message;
 import java.util.ArrayList;
 
 
+
 /**
  * Is used to connect to the RecycleView, which functions as a ListView, a list of strings, which will be inserted in the ViewHolder layout and this will be inserted in the list
  **/
@@ -41,6 +43,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private ArrayList<Message> mResults = new ArrayList<>();
     private Callback callback;
     private String myUniqueName;
+
 
 
     public MessagesAdapter(String myUniqueName, @NonNull Callback callback) {
